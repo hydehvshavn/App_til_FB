@@ -3,17 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Min test-app</title>
+  <title>Historiearkiv</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="app-card">
-    <p class="eyebrow">Min første lille app</p>
-    <h1>Velkommen til min test-app</h1>
-    <p class="intro">Tryk på knappen for at se en besked.</p>
-    <button id="messageButton" type="button">Vis besked</button>
+  <header class="topbar">
+    <a class="brand" href="./">Historiearkiv <span>Facebook</span></a>
+    <div class="account-area">
+      <span id="userStatus">Demotilstand</span>
+      <button id="loginButton" class="button button-light" type="button">Log ind med Microsoft</button>
+      <button id="logoutButton" class="button button-light hidden" type="button">Log ud</button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">Dit private arkiv</p>
+        <h1>Forslag til historier</h1>
+        <p class="intro">Saml idéer, billeder og opslag ét sted, så de er klar, når inspirationen rammer.</p>
+      </div>
+      <button id="newSuggestionButton" class="button button-primary" type="button">+ Nyt forslag</button>
+    </section>
+
+    <section class="toolbar" aria-label="Filtrering af forslag">
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-filter="active" role="tab" aria-selected="true" type="button">Aktive <span id="activeCount">0</span></button>
+        <button class="tab" data-filter="archived" role="tab" aria-selected="false" type="button">Arkiverede <span id="archivedCount">0</span></button>
+      </div>
+      <label class="search-field">
+        <span class="sr-only">Søg i forslag</span>
+        <input id="searchInput" type="search" placeholder="Søg i forslag...">
+      </label>
+    </section>
+
+    <section id="suggestionsList" class="suggestions-grid" aria-live="polite"></section>
+    <p id="emptyState" class="empty-state hidden">Der er ingen forslag her endnu.</p>
   </main>
 
-  <script src="script.js"></script>
+  <dialog id="suggestionDialog">
+    <form id="suggestionForm" class="suggestion-form">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">Nyt i arkivet</p>
+          <h2>Tilføj et forslag</h2>
+        </div>
+        <button id="closeDialogButton" class="icon-button" type="button" aria-label="Luk">&times;</button>
+      </div>
+      <label for="titleInput">Titel</label>
+      <input id="titleInput" name="title" required maxlength="100" placeholder="Fx Nyt projekt på havnen">
+      <label for="textInput">Historietekst</label>
+      <textarea id="textInput" name="text" required rows="6" placeholder="Skriv dit forslag til historien..."></textarea>
+      <label for="imageInput">Billede <span>(valgfrit)</span></label>
+      <input id="imageInput" name="image" type="file" accept="image/*">
+      <p id="formMessage" class="form-message" role="status"></p>
+      <div class="form-actions">
+        <button id="cancelButton" class="button button-light" type="button">Annuller</button>
+        <button class="button button-primary" type="submit">Gem forslag</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>

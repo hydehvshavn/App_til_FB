@@ -1,10 +1,11 @@
 export const firebaseConfig = {
-  apiKey: "DIN_API_KEY",
-  authDomain: "DIT_PROJEKT.firebaseapp.com",
-  projectId: "DIT_PROJEKT",
-  storageBucket: "DIT_PROJEKT.appspot.com",
-  messagingSenderId: "DIT_SENDER_ID",
-  appId: "DIT_APP_ID"
+  apiKey: "AIzaSyBmAUdgpXW0pvMSQNmXQZKGgIWwrTBDCHI",
+  authDomain: "app-til-fb-firebase.firebaseapp.com",
+  projectId: "app-til-fb-firebase",
+  storageBucket: "app-til-fb-firebase.firebasestorage.app",
+  messagingSenderId: "397985973281",
+  appId: "1:397985973281:web:a6b8a8469ab026d3a14f60",
+  measurementId: "G-QZQLNDQHWW"
 };
 
-export const allowedEmail = "hyde@hvshavn.dk";
+export const allowedEmail = "slusemester@gmail.com";
